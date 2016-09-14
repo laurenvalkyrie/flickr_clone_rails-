@@ -4,6 +4,10 @@ class ImagesController < ApplicationController
     @images = Image.all
   end
 
+  def show
+    @image = Image.find(params[:id])
+  end
+
   def new
     @image = Image.new
   end
@@ -17,6 +21,26 @@ class ImagesController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
+    @image = Image.find(params[:id])
+    render 'edit'
+  end
+
+  def update
+    @image = Image.find(params[:id])
+    if @image.update(image_params)
+        redirect_to image_path(@image)
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @image = Image.find(params[:id])
+    @image.destroy
+    redirect_to root_path
   end
 
   private

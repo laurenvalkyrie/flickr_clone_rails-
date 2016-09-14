@@ -1,0 +1,4 @@
+<%= image_tag(@image.image.url, :class => "individual-image") %>
+<h3><%= @image.caption %></h3>
+<%= link_to "Edit", edit_image_path(@image) %>
+<%= link_to "Delete", image_path(@image), :data => { :method => "delete"}%>
