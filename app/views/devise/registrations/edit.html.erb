@@ -11,6 +11,13 @@
   </div>
 
   <div class="field">
+    <%= f.label :username, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :username, autofocus: true, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
