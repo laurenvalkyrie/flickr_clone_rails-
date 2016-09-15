@@ -1,3 +1,7 @@
 <div class="page-header"><h1>Your Wonderful Photos</h1></div>
-
-<%= render @images %>
+<% if current_user != nil %>
+  <% current_user.images.each do |image| %>
+    <%= image_tag("#{image.image_file_name}") %>
+    <h4><%= image.caption %></h4>
+  <% end %>
+<% end %>

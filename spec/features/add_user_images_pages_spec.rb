@@ -8,5 +8,10 @@ describe 'the add images feature' do
     fill_in 'Email', :with => 'person@email.com'
     fill_in 'Password', :with => 'password'
     click_on 'Log in'
+    click_link 'Add new photo'
+    fill_in 'Caption', with: 'Hello'
+    page.attach_file("Image", 'public/images/Jon-Snow.jpg')
+    click_button 'Upload'
+    expect(page).to have_content 'Hello'
   end
 end
