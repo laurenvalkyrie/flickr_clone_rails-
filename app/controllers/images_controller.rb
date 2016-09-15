@@ -25,11 +25,17 @@ class ImagesController < ApplicationController
 
   def edit
     @image = Image.find(params[:id])
+    @users = User.all
     render 'edit'
   end
 
   def update
     @image = Image.find(params[:id])
+    @user_tagged = User.find(params[:tagged_user_id])
+    @user = User.find(current_user)
+    @image.tagged_users.push(@user_tagged)
+    @user_tagged.tagged_images.push(@image)
+
     if @image.update(image_params)
         redirect_to image_path(@image)
     else

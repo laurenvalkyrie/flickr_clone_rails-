@@ -7,6 +7,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_and_belongs_to_many :tagged_images, class_name: "Image"
   has_many :images
-  validates :email, :username, :password, :presence => true
+  validates :email, :username, :presence => true
 end
