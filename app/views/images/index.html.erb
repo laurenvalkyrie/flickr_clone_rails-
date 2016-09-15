@@ -16,4 +16,15 @@
     <% end %>
   <% end %>
   <hr>
+
+  <h1>Images you're tagged in:</h1>
+  <% if current_user.tagged_images.any? %>
+    <% current_user.tagged_images.each do |image| %>
+      <ul>
+        <p>
+          <%= image_tag("#{image.image_file_name}") %>
+        </p>
+      </ul>
+    <% end %>
+    <% end %>
 <% end %>
