@@ -21,4 +21,14 @@ describe 'the create user process' do
     click_on 'Log in'
     expect(page).to have_content 'Logged in as person@email.com'
   end
+  it 'allows an existing user to log out' do
+    user = FactoryGirl.create(:user)
+    visit '/'
+    click_link 'Login'
+    fill_in 'Email', :with => 'person@email.com'
+    fill_in 'Password', :with => 'password'
+    click_on 'Log in'
+    click_on 'Log out'
+    expect(page).to have_content 'Signed out successfully'
+  end
 end
