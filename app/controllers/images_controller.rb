@@ -33,7 +33,7 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     @user_tagged = User.find(params[:tagged_user_id])
     @user = User.find(current_user)
-    @image.tagged_users.push(@user_tagged)
+    # @image.tagged_users.push(@user_tagged)
     @user_tagged.tagged_images.push(@image)
 
     if @image.update(image_params)

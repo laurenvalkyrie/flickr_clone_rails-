@@ -9,5 +9,5 @@ class User < ApplicationRecord
 
   has_and_belongs_to_many :tagged_images, class_name: "Image"
   has_many :images
-  validates :email, :username, :presence => true
+  # validates :email, :username, :password, :presence => true
 end
