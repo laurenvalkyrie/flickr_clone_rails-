@@ -35,7 +35,9 @@ class ImagesController < ApplicationController
     @user = User.find(current_user)
     # @image.tagged_users.push(@user_tagged)
     @user_tagged.tagged_images.push(@image)
-
+    # if params.users_who_favorited
+    #   @image.users_who_favorited.push(current_user)
+    # end
     if @image.update(image_params)
         redirect_to image_path(@image)
     else

@@ -8,6 +8,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_and_belongs_to_many :tagged_images, class_name: "Image"
+  has_and_belongs_to_many :fav_images, join_table: 'favorites', class_name: "Image"
+
   has_many :images
   # validates :email, :username, :password, :presence => true
 end
