@@ -12,4 +12,13 @@ describe 'the create user process' do
     click_button 'Sign Up'
     expect(page).to have_content 'Logged in'
   end
+  it 'allows an existing user to login' do
+    user = FactoryGirl.create(:user)
+    visit '/'
+    click_link 'Login'
+    fill_in 'Email', :with => 'person@email.com'
+    fill_in 'Password', :with => 'password'
+    click_on 'Log in'
+    expect(page).to have_content 'Logged in as person@email.com'
+  end
 end
